@@ -21,7 +21,8 @@ Now extended with REST API endpoints for JSON access.
 
 ## UML Diagram
 The following diagram illustrates the structure of the Student Portal:
-!\[Class Diagram](images/class\_diagram.png)
+
+!\[Class Diagram](images/class_diagram.png)
 
 \---
 
