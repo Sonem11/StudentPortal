@@ -2,13 +2,15 @@
 
 ## Overview
 A simple web application demonstrating CRUD operations using Flask and SQLite.  
-This project connects backend (Flask), database (SQLite), and frontend (HTML + CSS).
+This project connects backend (Flask), database (SQLite), and frontend (HTML + CSS). Now extended with REST API endpoints for JSON access.
 
 ## Features
 - Add new students via form (`add_student.html`)
 - Edit existing students (`edit_student.html`)
 - Delete students directly from the list
 - View all students in a table (`index.html`)
+- REST API for programmatic access
+- UML diagram showing project structure
 
 ## Visual Representation
 ### Add Student Form
@@ -54,8 +56,6 @@ The table displays all students with options to edit or delete:
 The Student Portal also provides a REST API for programmatic access to student data.  
 All responses are returned in **JSON format**.
 
-### Endpoints Overview
-
 | Method | Endpoint              | Description                  | Example Response |
 |--------|-----------------------|------------------------------|------------------|
 | GET    | `/api/students`       | Get all students             | `[{"id":1,"name":"Marko","age":18,"major":"Computer Science"}, {"id":2,"name":"Marija","age":19,"major":"Economics"}]` |
@@ -69,7 +69,15 @@ All responses are returned in **JSON format**.
 curl http://127.0.0.1:5000/api/students
 Get student by ID
 curl http://127.0.0.1:5000/api/student/1
-Add new student
+Add new student (Windows CMD)
 curl -X POST http://127.0.0.1:5000/api/student -H "Content-Type: application/json" -d "{\"name\":\"Petar\",\"age\":20,\"major\":\"Physics\"}"
+
 Response:
 {"message": "Student added successfully"}
+
+
+## UML Diagram
+
+The following diagram illustrates the structure of the Student Portal:
+
+![Class Diagram](images/class_diagram.png)
