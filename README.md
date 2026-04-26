@@ -48,3 +48,28 @@ The table displays all students with options to edit or delete:
 | 1  | Marko  | 18  | Computer Science | Edit \| Delete |
 | 2  | Marija | 19  | Economics        | Edit \| Delete |
 | 3  | Petar  | 20  | Physics          | Edit \| Delete |
+
+## REST API Endpoints
+
+The Student Portal also provides a REST API for programmatic access to student data.  
+All responses are returned in **JSON format**.
+
+### Endpoints Overview
+
+| Method | Endpoint              | Description                  | Example Response |
+|--------|-----------------------|------------------------------|------------------|
+| GET    | `/api/students`       | Get all students             | `[{"id":1,"name":"Marko","age":18,"major":"Computer Science"}, {"id":2,"name":"Marija","age":19,"major":"Economics"}]` |
+| GET    | `/api/student/<id>`   | Get student by ID            | `{"id":1,"name":"Marko","age":18,"major":"Computer Science"}` |
+| POST   | `/api/student`        | Add new student (JSON body)  | `{"message":"Student added successfully"}` |
+
+### Example Usage
+
+#### Get all students
+```bash
+curl http://127.0.0.1:5000/api/students
+Get student by ID
+curl http://127.0.0.1:5000/api/student/1
+Add new student
+curl -X POST http://127.0.0.1:5000/api/student -H "Content-Type: application/json" -d "{\"name\":\"Petar\",\"age\":20,\"major\":\"Physics\"}"
+Response:
+{"message": "Student added successfully"}
