@@ -12,13 +12,13 @@ This project connects backend (Flask), database (SQLite), and frontend (HTML + C
 
 ## Visual Representation
 ### Add Student Form
-![Add Student](add_student.png)
+![Add Student](images/add_student.png)
 
 ### Edit Student Form
-![Edit Student](edit_student.png)
+![Edit Student](images/edit_student.png)
 
 ### Student List
-![Student List](index.png)
+![Student List](images/index.png)
 
 ## Technologies Used
 - Python 3.14
@@ -35,11 +35,16 @@ Open in browser: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ## Example Output
 
-               Student Portal
+### Student Portal
 
-                Add Student
-ID | Name     | Age | Major              | Actions
+#### Add Student
+By clicking on "Add Student," a form opens for entering a new student.
 
-1  | Marko    | 18  | Computer Science   | Edit | Delete
-2  | Marija   | 19  | Economics          | Edit | Delete 
-3  | Petar    | 20  | Physics            | Edit | Delete 
+#### Student List
+The table displays all students with options to edit or delete:
+
+| ID | Name   | Age | Major            | Actions        |
+|----|--------|-----|------------------|----------------|
+| 1  | Marko  | 18  | Computer Science | Edit \| Delete |
+| 2  | Marija | 19  | Economics        | Edit \| Delete |
+| 3  | Petar  | 20  | Physics          | Edit \| Delete |
