@@ -12,13 +12,13 @@ This project connects backend (Flask), database (SQLite), and frontend (HTML + C
 
 ## Visual Representation
 ### Add Student Form
-![Add Student](images\add_student.png)
+![Add Student](images/add_student.png)
 
 ### Edit Student Form
-![Edit Student](images\edit_student.png)
+![Edit Student](images/edit_student.png)
 
 ### Student List
-![Student List](images\index.png)
+![Student List](images/index.png)
 
 ## Technologies Used
 - Python 3.14
