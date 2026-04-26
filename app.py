@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 from database import Database
 
 app = Flask(__name__)
@@ -34,6 +34,31 @@ def edit_student(id):
 def delete_student(id):
     db.delete_student(id)
     return redirect("/")
+
+# ---------------------------
+# REST API ROUTES (JSON)
+# ---------------------------
+
+@app.route("/api/students", methods=["GET"])
+def api_get_students():
+    students = db.fetch_all()
+    return jsonify(students)
+
+@app.route("/api/student/<int:id>", methods=["GET"])
+def api_get_student(id):
+    student = db.fetch_by_id(id)
+    if student:
+        return jsonify(student)
+    return jsonify({"error": "Student not found"}), 404
+
+@app.route("/api/student", methods=["POST"])
+def api_add_student():
+    data = request.get_json()
+    name = data.get("name")
+    age = data.get("age")
+    major = data.get("major")
+    db.insert_student(name, age, major)
+    return jsonify({"message": "Student added successfully"}), 201
 
 if __name__ == "__main__":
     app.run(debug=True)
