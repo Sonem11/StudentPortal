@@ -87,8 +87,7 @@ Response:
 UML Diagram
 The following diagram illustrates the structure of the Student Portal:
 
-[Looks like the result wasn't safe to show. Let's switch things up and try something else!]
-
+ 
 Project Structure
 StudentPortal/
 │── app.py
