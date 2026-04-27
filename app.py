@@ -5,9 +5,20 @@ from database import Database
 import jwt
 import datetime
 from functools import wraps
+import os
+from flask import Flask
+from dotenv import load_dotenv
+
+# Load environment variables from .env (lokalno)
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "tajna_lozinka"  # promeni u nešto jače
+
+# Flask secret key (za sesije, CSRF, Flask-Login)
+app.secret_key = os.environ.get("SECRET_KEY", "fallback_secret")
+
+# JWT secret (za token autentikaciju)
+JWT_SECRET = os.environ.get("JWT_SECRET", "fallback_jwt_secret")
 
 db = Database("students.db")
 
