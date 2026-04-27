@@ -1,9 +1,10 @@
 from database import Database
 
-# Inicijalizuj bazu
+# inicijalizuj bazu
 db = Database("students.db")
 
-# Kreiraj admin nalog (pokreni samo jednom!)
-db.insert_user("admin", "adminpass", role="admin")
+# ubaci admin nalog
+db.insert_user("admin", "admin123Arl11+", role="admin")
 
-print("✅ Admin nalog kreiran: username='admin', password='adminpass'")
+print("Admin user created: username=admin, password=admin123Arl11+")
+
