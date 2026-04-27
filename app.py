@@ -154,6 +154,16 @@ def delete_student(id):
 # ---------------------------
 # CREATE ADMIN ROUTE (privremeno za Render)
 # ---------------------------
+# ---------------------------
+# CREATE ADMIN ROUTE (privremeno za Render)
+# ---------------------------
+@app.route("/create_admin")
+def create_admin():
+    cursor = db.conn.execute("SELECT * FROM users WHERE username=?", ("admin",))
+    if cursor.fetchone():
+        return "Admin already exists!"
+    db.insert_user("admin", "admin123", role="admin")
+    return "Admin created: username=admin, password=admin123"
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
