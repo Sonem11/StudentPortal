@@ -4,4 +4,6 @@ Werkzeug
 PyJWT
 gunicorn
 pytest
+python-dotenv
+
 
