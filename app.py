@@ -60,5 +60,20 @@ def api_add_student():
     db.insert_student(name, age, major)
     return jsonify({"message": "Student added successfully"}), 201
 
+@app.route("/api/student/<int:id>", methods=["PUT"])
+def api_update_student(id):
+    data = request.get_json()
+    name = data.get("name")
+    age = data.get("age")
+    major = data.get("major")
+    db.update_student(id, name, age, major)
+    return jsonify({"message": "Student updated successfully"})
+
+@app.route("/api/student/<int:id>", methods=["DELETE"])
+def api_delete_student(id):
+    db.delete_student(id)
+    return jsonify({"message": "Student deleted successfully"})
+
 if __name__ == "__main__":
     app.run(debug=True)
+
