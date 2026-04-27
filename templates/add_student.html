@@ -2,23 +2,32 @@
 <html>
 <head>
     <title>Add Student</title>
-    <link rel="stylesheet" href="/static/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
-<body>
-    <h1>Add Student</h1>
-    <form method="POST">
-        <label>Name:</label><br>
-        <input type="text" name="name" required><br><br>
+<body class="bg-light">
 
-        <label>Age:</label><br>
-        <input type="number" name="age" required><br><br>
+    <div class="container mt-4">
+        <h2 class="mb-3">Add Student</h2>
+        <form method="POST" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label>
+                <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="age" class="form-label">Age:</label>
+                <input type="number" name="age" id="age" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="major" class="form-label">Major:</label>
+                <input type="text" name="major" id="major" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success">Add Student</button>
+            <a href="/" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
 
-        <label>Major:</label><br>
-        <input type="text" name="major" required><br><br>
-
-        <button type="submit">Add</button>
-    </form>
-    <br>
-    <a href="/">Back to list</a>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
