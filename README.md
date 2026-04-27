@@ -64,20 +64,32 @@ The table displays all students with options to edit or delete:
 | 1 | Marko | 18 | Computer Science | Edit \\ | Delete |
 | 2 | Marija | 19 | Economics | Edit \\ | Delete |
 | 3 | Petar | 20 | Physics | Edit \\ | Delete |
-REST API Endpoints
-The Student Portal also provides a REST API for programmatic access to student data.
-All responses are returned in JSON format.
-| Method | Endpoint | Description | Example Response |
-| --- | --- | --- | --- |
-| GET | ``/api/students`` | Get all students | ``[{"id":1,"name":"Marko","age":18,"major":"Computer ``Science"}, ``{"id":2,"name":"Marija","age":19,"major":"Economics"}]`` |
-| GET | ``/api/student/``<id></id>`` | Get student by ID | ``{"id":1,"name":"Marko","age":18,"major":"Computer ``Science"}`` |
-| POST | ``/api/student`` | Add new student (JSON body) | ``{"message":"Student ``added ``successfully"}`` |
-Example Usage
-Get all studentscurl http://127.0.0.1:5000/api/students
-Get student by IDcurl http://127.0.0.1:5000/api/student/1
-Add new student (Windows CMD)curl -X POST http://127.0.0.1:5000/api/student -H "Content-Type: application/json" -d "{\"name\":\"Petar\",\"age\":20,\"major\":\"Physics\"}"
-Response:
-{"message": "Student added successfully"}
+
+## REST API Endpoints
+
+| Method | Endpoint              | Description                  | Example Response |
+|--------|-----------------------|------------------------------|------------------|
+| GET    | `/api/students`       | Get all students             | `[{"id":1,"name":"Marko","age":18,"major":"Computer Science"}]` |
+| GET    | `/api/student/<id>`   | Get student by ID            | `{"id":1,"name":"Marko","age":18,"major":"Computer Science"}` |
+| POST   | `/api/student`        | Add new student (JSON body)  | `{"message":"Student added successfully"}` |
+| PUT    | `/api/student/<id>`   | Update student by ID         | `{"message":"Student updated successfully"}` |
+| DELETE | `/api/student/<id>`   | Delete student by ID         | `{"message":"Student deleted successfully"}` |
+
+---
+
+### Example Usage
+
+#### Get all students
+```bash
+curl http://127.0.0.1:5000/api/students
+Get student by ID
+curl http://127.0.0.1:5000/api/student/1
+Add new student
+curl -X POST http://127.0.0.1:5000/api/student -H "Content-Type: application/json" -d "{\"name\":\"Petar\",\"age\":20,\"major\":\"Physics\"}"
+Update student
+curl -X PUT http://127.0.0.1:5000/api/student/1 -H "Content-Type: application/json" -d "{\"name\":\"Marko Updated\",\"age\":19,\"major\":\"Math\"}"
+Delete student
+curl -X DELETE http://127.0.0.1:5000/api/student/1
 
 Project Structure
 StudentPortal/
