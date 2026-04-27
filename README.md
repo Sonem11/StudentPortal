@@ -65,15 +65,26 @@ The table displays all students with options to edit or delete:
 | 2 | Marija | 19 | Economics | Edit \\ | Delete |
 | 3 | Petar | 20 | Physics | Edit \\ | Delete |
 
-## REST API Endpoints
+## REST API Endpoints (defined in app.py)
 
-| Method | Endpoint              | Description                  | Example Response |
-|--------|-----------------------|------------------------------|------------------|
-| GET    | `/api/students`       | Get all students             | `[{"id":1,"name":"Marko","age":18,"major":"Computer Science"}]` |
-| GET    | `/api/student/<id>`   | Get student by ID            | `{"id":1,"name":"Marko","age":18,"major":"Computer Science"}` |
-| POST   | `/api/student`        | Add new student (JSON body)  | `{"message":"Student added successfully"}` |
-| PUT    | `/api/student/<id>`   | Update student by ID         | `{"message":"Student updated successfully"}` |
-| DELETE | `/api/student/<id>`   | Delete student by ID         | `{"message":"Student deleted successfully"}` |
+Sve REST rute su direktno implementirane u fajlu **app.py** zajedno sa web rutama.  
+API vraća podatke u **JSON formatu** i omogućava kompletan CRUD.
+
+| Method | Endpoint           | Description                  | Example Response |
+|--------|--------------------|------------------------------|------------------|
+| ✅ GET    | `/students`        | Get all students             | `[{"id":1,"name":"Marko","age":18,"major":"Computer Science"}]` |
+| ✅ GET    | `/student/<id>`    | Get student by ID            | `{"id":1,"name":"Marko","age":18,"major":"Computer Science"}` |
+| ➕ POST   | `/student`         | Add new student (JSON body)  | `{"message":"Student added successfully"}` |
+| ✏️ PUT    | `/student/<id>`    | Update student by ID         | `{"message":"Student updated successfully"}` |
+| ❌ DELETE | `/student/<id>`    | Delete student by ID         | `{"message":"Student deleted successfully"}` |
+
+---
+
+### Example Usage (Windows CMD)
+
+#### Get all students
+```bash
+curl http://127.0.0.1:5000/students
 
 ---
 
