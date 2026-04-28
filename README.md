@@ -1,5 +1,8 @@
 # Student Portal 🏫
 
+![Build Status](https://github.com/Sonem11/StudentPortal/actions/workflows/tests.yml/badge.svg)
+
+
 ## Overview
 A simple web application demonstrating CRUD operations using **Flask** and **SQLite**.  
 This project connects backend (Flask), database (SQLite), and frontend (HTML + CSS).  
@@ -156,3 +159,66 @@ StudentPortal/
 │── requirements.txt
 │── .gitignore
 │── README.md
+
+🧪 Testing
+🔹 Run tests locally
+To execute all tests locally, use pytest:
+
+bash
+pytest -v
+The -v option provides verbose output, showing each test individually.
+
+All tests are located in the tests/ folder and cover:
+
+Authentication (register, login, logout)
+
+JWT API login and CRUD operations on students
+
+Student CRUD API (add, get, update, delete)
+
+To run a single test file:
+
+bash
+pytest -v tests/test_api_auth.py
+🔹 CI/CD Workflow (GitHub Actions)
+This repository includes a GitHub Actions workflow defined in .github/workflows/tests.yml.
+
+The workflow automatically runs on every git push or pull_request to the main branch.
+
+📄 Workflow file: tests.yml
+yaml
+name: Run Pytest
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.14'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pytest
+
+    - name: Run tests
+      run: pytest -v
+🎯 Results
+On every push, GitHub automatically runs all pytest tests.
+
+If all tests pass → ✅ green check mark in the Actions tab.
+
+If any test fails → ❌ red mark, with detailed logs showing the error.
