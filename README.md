@@ -6,7 +6,7 @@
 ## Overview
 A simple web application demonstrating CRUD operations using **Flask** and **SQLite**.  
 This project connects backend (Flask), database (SQLite), and frontend (HTML + CSS).  
-Extended with **REST API endpoints** for JSON access, **JWT authentication**, and **pytest test coverage**.
+Extended with **REST API endpoints** for JSON access, **JWT authentication**, and **pytest test CI/CD workflow coverage**.
 
 ---
 
